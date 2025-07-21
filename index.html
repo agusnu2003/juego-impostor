@@ -7,40 +7,53 @@
     body {
       font-family: sans-serif;
       text-align: center;
-      background-color: #f0f0f0;
+      background-color: #f8f9fa;
       padding: 30px;
     }
     h1 {
       color: #333;
     }
-    button {
+    select, button {
       font-size: 18px;
-      padding: 12px 24px;
+      padding: 10px;
       margin: 10px;
-      border: none;
       border-radius: 8px;
-      cursor: pointer;
+      border: none;
+    }
+    button {
       background-color: #007bff;
       color: white;
+      cursor: pointer;
     }
     button:hover {
       background-color: #0056b3;
+    }
+    .jugadores-container button {
+      display: block;
+      margin: 10px auto;
+      width: 200px;
     }
   </style>
 </head>
 <body>
 
   <h1>Juego del Impostor ⚽</h1>
-  <p>Haz clic en "Comenzar ronda" y luego cada jugador mira su rol.</p>
+  <p>Selecciona cuántos jugadores van a participar:</p>
 
+  <select id="cantidad" onchange="reiniciar()">
+    <option value="4" selected>4 jugadores</option>
+    <option value="5">5 jugadores</option>
+    <option value="6">6 jugadores</option>
+    <option value="7">7 jugadores</option>
+    <option value="8">8 jugadores</option>
+    <option value="9">9 jugadores</option>
+    <option value="10">10 jugadores</option>
+  </select>
+
+  <br>
   <button onclick="generarRonda()">Comenzar ronda</button>
 
-  <div id="botonesJugadores" style="margin-top: 20px; display: none;">
-    <button onclick="mostrarRol(0)">Jugador 1</button>
-    <button onclick="mostrarRol(1)">Jugador 2</button>
-    <button onclick="mostrarRol(2)">Jugador 3</button>
-    <button onclick="mostrarRol(3)">Jugador 4</button>
-  </div>
+  <div id="jugadores" class="jugadores-container"></div>
 
   <script>
     const jugadores_iconicos = [
@@ -59,9 +72,17 @@
 
     let roles = [];
 
+    function reiniciar() {
+      document.getElementById("jugadores").innerHTML = "";
+      roles = [];
+    }
+
     function generarRonda() {
-      const jugadorRandom = jugadores_iconicos[Math.floor(Math.random() * jugadores_iconicos.length)];
-      roles = [jugadorRandom, jugadorRandom, jugadorRandom, "IMPOSTOR"];
+      const cantidad = parseInt(document.getElementById("cantidad").value);
+      const jugadorElegido = jugadores_iconicos[Math.floor(Math.random() * jugadores_iconicos.length)];
+
+      roles = Array(cantidad - 1).fill(jugadorElegido);
+      roles.push("IMPOSTOR");
 
       // Mezclar roles
       for (let i = roles.length - 1; i > 0; i--) {
@@ -69,13 +90,19 @@
         [roles[i], roles[j]] = [roles[j], roles[i]];
       }
 
-      document.getElementById("botonesJugadores").style.display = "block";
-      alert("¡Ronda lista! Cada jugador debe mirar su rol por separado.");
-    }
+      const container = document.getElementById("jugadores");
+      container.innerHTML = "";
 
-    function mostrarRol(numero) {
-      alert(`🎭 Tu rol es: ${roles[numero]}`);
+      for (let i = 0; i < cantidad; i++) {
+        const btn = document.createElement("button");
+        btn.innerText = `Jugador ${i + 1}`;
+        btn.onclick = () => alert(`🎭 Tu rol es: ${roles[i]}`);
+        container.appendChild(btn);
+      }
+
+      alert("¡Ronda lista! Cada jugador debe mirar su rol en secreto.");
     }
   </script>
+
 </body>
 </html>
