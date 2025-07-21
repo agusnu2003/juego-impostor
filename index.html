@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego del Impostor ⚽</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      padding: 30px;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      font-size: 18px;
+      padding: 12px 24px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Juego del Impostor ⚽</h1>
+  <p>Haz clic en "Comenzar ronda" y luego cada jugador mira su rol.</p>
+
+  <button onclick="generarRonda()">Comenzar ronda</button>
+
+  <div id="botonesJugadores" style="margin-top: 20px; display: none;">
+    <button onclick="mostrarRol(0)">Jugador 1</button>
+    <button onclick="mostrarRol(1)">Jugador 2</button>
+    <button onclick="mostrarRol(2)">Jugador 3</button>
+    <button onclick="mostrarRol(3)">Jugador 4</button>
+  </div>
+
+  <script>
+    const jugadores_iconicos = [
+      "Messi", "Maradona", "Zidane", "Ronaldo Nazário", "Ronaldinho",
+      "Mbappé", "Cristiano Ronaldo", "Riquelme", "Batistuta", "Tevez",
+      "Beckham", "Xavi", "Iniesta", "Pirlo", "Modrić", "Neymar", "Benzema", "Salah",
+      "Sergio Ramos", "Gerard Piqué", "Carles Puyol", "Otamendi",
+      "Varane", "Marquinhos", "Thiago Silva", "Lisandro Martínez", "Cuti Romero",
+      "Lewandowski", "Suárez", "Cavani", "Ibrahimović",
+      "Higuaín", "David Villa", "Fernando Torres", "Diego Forlán", "Harry Kane",
+      "Haaland", "Lautaro Martínez", "Vardy", "Lukaku",
+      "Dybala", "Alexis Sánchez", "Timo Werner", "Giroud",
+      "Dibu Martínez", "Casillas", "Buffon", "Neuer",
+      "Keylor Navas", "Ter Stegen", "Alisson", "Courtois"
+    ];
+
+    let roles = [];
+
+    function generarRonda() {
+      const jugadorRandom = jugadores_iconicos[Math.floor(Math.random() * jugadores_iconicos.length)];
+      roles = [jugadorRandom, jugadorRandom, jugadorRandom, "IMPOSTOR"];
+
+      // Mezclar roles
+      for (let i = roles.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [roles[i], roles[j]] = [roles[j], roles[i]];
+      }
+
+      document.getElementById("botonesJugadores").style.display = "block";
+      alert("¡Ronda lista! Cada jugador debe mirar su rol por separado.");
+    }
+
+    function mostrarRol(numero) {
+      alert(`🎭 Tu rol es: ${roles[numero]}`);
+    }
+  </script>
+</body>
+</html>
