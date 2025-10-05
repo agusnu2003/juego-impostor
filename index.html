@@ -56,27 +56,61 @@
   <div id="jugadores" class="jugadores-container"></div>
 
   <script>
-   const jugadores_iconicos = [
-  "Messi", "Zidane", "Ronaldo Nazário", "Ronaldinho",
-  "Mbappé", "Cristiano Ronaldo", "Riquelme", "Batistuta", "Tevez"
-  , "Xavi", "Iniesta", "Pirlo", "Modrić", "Salah",
-  "Gerard Piqué", "Otamendi", "Thiago Silva", "Lisandro Martínez",
-  "Lewandowski", "Suárez", "Cavani", "Higuaín", "Harry Kane",
-  "Haaland", "Lautaro Martínez", "Lukaku", "Dybala",
-  "Timo Werner", "Giroud", "Dibu Martínez", "Buffon", "Neuer",
-  "Ter Stegen", "Alisson", "Courtois",
+  const jugadores_iconicos = [
+  "Messi","Zidane","Ronaldo Nazário","Ronaldinho",
+  "Mbappé","Cristiano Ronaldo","Riquelme","Batistuta","Tevez",
+  "Xavi","Iniesta","Pirlo","Modrić","Salah",
+  "Gerard Piqué","Otamendi","Thiago Silva","Lisandro Martínez",
+  "Lewandowski","Suárez","Cavani","Higuaín","Harry Kane",
+  "Haaland","Lautaro Martínez","Lukaku","Dybala",
+  "Timo Werner","Giroud","Dibu Martínez","Buffon","Neuer",
+  "Ter Stegen","Alisson","Courtois",
+  "Julián Álvarez","Pezzella","Marcelo Gallardo","Zabaleta",
+  "Rodri","Vinícius Jr.","Rodrygo","Valverde","Lo Celso",
+  "Lucas Blondel","Colo Barco","Enzo Pérez",
+  "Scaloni","Marco Reus","Sergio Busquets","Lamine Yamal",
+  "Achraf Hakimi","Declan Rice","Ousmane Dembélé","Jordi Alba",
+  "Lanzini","Juanfer Quintero","Martín Palermo","Langoni","Driussi",
+  "Maravilla Martinez","Benedetto","Saka","Rüdiger","Bruno Fernandes",
+  "Garnacho","Mac Allister","De Paul","Pedri","Jude Bellingham",
+  "Yann Sommer","Michael Laudrup","Di Lolo","Fatori","Aimar","Neymar",
+  "Nico Paz","Retegui","Sterling","Bernardo Silva","Sergio Agüero (Kun)",
 
-  // Nuevos ya integrados
-  "Julián Álvarez", "Pezzella", "Marcelo Gallardo", "Zabaleta",
-  "Rodri", "Vinícius Jr.", "Rodrygo", "Valverde", "Lo Celso"
-  , "Lucas Blondel", "Colo Barco", "Enzo Pérez",
+  // +100 agregados
+  // Arqueros
+  "Iker Casillas","Petr Čech","Jan Oblak","Keylor Navas","Ederson",
+  "David de Gea","Hugo Lloris","André Onana","Wojciech Szczęsny","Samir Handanović",
 
-  // Nuevos que estás agregando ahora
-  "Scaloni", "Marco Reus", "Sergio Busquets", "Lamine Yamal",
-  "Achraf Hakimi", "Declan Rice", "Ousmane Dembélé", "Jordi Alba",
-  "Lanzini", "Juanfer Quintero", "Martín Palermo", "Langoni","Driussi","Maravilla Martinez","Benedetto","Saka","Rudiger","Bruno Fernandez","Garnacho","Mac Allister","De Paul","Pedri","Bellinham","Sommer","Laudrup Maikel","Di Lolo","Fatori","Aimar","NeyMar"
-     ,"Nico Paz","Retegui","Sterling","Bernardo SIlva","Kun Aguero"
+  // Defensas
+  "Sergio Ramos","Carles Puyol","Virgil van Dijk","Dani Alves","Marcelo",
+  "Philipp Lahm","Giorgio Chiellini","Leonardo Bonucci","Raphaël Varane","Vincent Kompany",
+  "John Terry","Rio Ferdinand","Nemanja Vidić","Ashley Cole","Patrice Evra",
+  "David Alaba","Andrew Robertson","Trent Alexander-Arnold","Kyle Walker","Dani Carvajal",
+  "Mats Hummels","Aymeric Laporte","Kalidou Koulibaly","César Azpilicueta","Jérôme Boateng",
+  "Alessandro Nesta","Cafú","Maicon","Marcos Rojo","Nicolás Tagliafico",
+
+  // Mediocampistas
+  "Kevin De Bruyne","Toni Kroos","Thomas Müller","Mesut Özil","Kaká",
+  "Steven Gerrard","Frank Lampard","Paul Scholes","Michael Carrick","Xabi Alonso",
+  "Bastian Schweinsteiger","Cesc Fàbregas","David Silva","Marco Verratti","Casemiro",
+  "N'Golo Kanté","Yaya Touré","Arturo Vidal","James Rodríguez","Javier Mascherano",
+  "Esteban Cambiasso","Ángel Di María","Thiago Alcântara","İlkay Gündoğan","Miralem Pjanić",
+  "Blaise Matuidi","Fernandinho","Marcelo Brozović","Frenkie de Jong","Nicolò Barella",
+  "Jorginho",
+
+  // Delanteros / extremos
+  "Karim Benzema","Antoine Griezmann","Gareth Bale","Eden Hazard","Wayne Rooney",
+  "Didier Drogba","Samuel Eto'o","Zlatan Ibrahimović","Robin van Persie","Arjen Robben",
+  "Franck Ribéry","David Villa","Fernando Torres","Sadio Mané","Pierre-Emerick Aubameyang",
+  "Riyad Mahrez","Alexis Sánchez","Radamel Falcao","Edin Džeko","Mauro Icardi",
+  "Francesco Totti","Hernán Crespo","Diego Forlán","Luis Figo","Andriy Shevchenko",
+  "Miroslav Klose","Mario Götze","João Félix","Jadon Sancho"
 ];
+
+
+// Unir listas
+// jugadores_iconicos = jugadores_iconicos.concat(jugadores_iconicos_extra);
+
 
 
     let roles = [];
